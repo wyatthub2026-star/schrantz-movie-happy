@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>TVFlix - Movie Streaming</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #0b0b0f;
+      color: white;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    /* HEADER */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(10, 10, 15, 0.97);
+      padding: 15px 5%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      border-bottom: 1px solid #222;
+    }
+
+    .logo {
+      font-size: 28px;
+      font-weight: bold;
+      color: #e50914;
+      white-space: nowrap;
+    }
+
+    .logo span {
+      color: white;
+    }
+
+    nav {
+      display: flex;
+      gap: 20px;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-size: 15px;
+    }
+
+    nav a:hover {
+      color: #e50914;
+    }
+
+    .search-box {
+      display: flex;
+      align-items: center;
+      background: #1c1c22;
+      border-radius: 25px;
+      padding: 8px 15px;
+      width: 250px;
+    }
+
+    .search-box input {
+      width: 100%;
+      border: none;
+      outline: none;
+      background: transparent;
+      color: white;
+      font-size: 14px;
+    }
+
+    /* HERO */
+    .hero {
+      min-height: 500px;
+      display: flex;
+      align-items: center;
+      padding: 60px 6%;
+      background:
+        linear-gradient(to right, #0b0b0f 10%, rgba(11,11,15,0.75) 45%, rgba(11,11,15,0.3)),
+        url("https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?auto=format&fit=crop&w=1600&q=80")
+        center/cover;
+    }
+
+    .hero-content {
+      max-width: 600px;
+    }
+
+    .hero h1 {
+      font-size: 52px;
+      margin-bottom: 15px;
+    }
+
+    .hero p {
+      color: #ddd;
+      line-height: 1.6;
+      margin-bottom: 25px;
+      font-size: 16px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 12px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 13px 25px;
+      border-radius: 5px;
+      text-decoration: none;
+      font-weight: bold;
+      cursor: pointer;
+      border: none;
+    }
+
+    .btn-primary {
+      background: #e50914;
+      color: white;
+    }
+
+    .btn-primary:hover {
+      background: #b20710;
+    }
+
+    .btn-secondary {
+      background: rgba(255,255,255,0.2);
+      color: white;
+    }
+
+    .btn-secondary:hover {
+      background: rgba(255,255,255,0.3);
+    }
+
+    /* CONTENT */
+    .container {
+      width: 90%;
+      max-width: 1400px;
+      margin: auto;
+      padding: 40px 0;
+    }
+
+    .section-title {
+      font-size: 25px;
+      margin-bottom: 20px;
+    }
+
+    /* CATEGORY */
+    .categories {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-bottom: 30px;
+    }
+
+    .category {
+      background: #1c1c22;
+      color: white;
+      border: 1px solid #333;
+      padding: 9px 18px;
+      border-radius: 20px;
+      cursor: pointer;
+    }
+
+    .category:hover {
+      background: #e50914;
+      border-color: #e50914;
+    }
+
+    /* MOVIE GRID */
+    .movie-grid {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 20px;
+    }
+
+    .movie-card {
+      background: #15151b;
+      border-radius: 8px;
+      overflow: hidden;
+      transition: 0.3s;
+    }
+
+    .movie-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.6);
+    }
+
+    .movie-card img {
+      width: 100%;
+      height: 280px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .movie-info {
+      padding: 12px;
+    }
+
+    .movie-info h3 {
+      font-size: 16px;
+      margin-bottom: 7px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .movie-info p {
+      color: #aaa;
+      font-size: 13px;
+      margin-bottom: 10px;
+    }
+
+    .watch-btn {
+      display: block;
+      text-align: center;
+      background: #e50914;
+      color: white;
+      padding: 9px;
+      border-radius: 4px;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: bold;
+    }
+
+    .watch-btn:hover {
+      background: #b20710;
+    }
+
+    /* FOOTER */
+    footer {
+      text-align: center;
+      padding: 30px;
+      margin-top: 40px;
+      background: #08080b;
+      color: #777;
+      border-top: 1px solid #222;
+    }
+
+    /* NO RESULTS */
+    #noResults {
+      display: none;
+      color: #aaa;
+      text-align: center;
+      padding: 40px;
+      font-size: 18px;
+    }
+
+    /* TABLET */
+    @media (max-width: 1100px) {
+      .movie-grid {
+        grid-template-columns: repeat(4, 1fr);
+      }
+
+      .movie-card img {
+        height: 260px;
+      }
+    }
+
+    /* MOBILE */
+    @media (max-width: 700px) {
+
+      header {
+        flex-wrap: wrap;
+        padding: 12px 4%;
+      }
+
+      .logo {
+        font-size: 24px;
+      }
+
+      nav {
+        order: 3;
+        width: 100%;
+        justify-content: center;
+      }
+
+      .search-box {
+        width: 170px;
+      }
+
+      .hero {
+        min-height: 450px;
+        padding: 40px 5%;
+      }
+
+      .hero h1 {
+        font-size: 38px;
+      }
+
+      .hero p {
+        font-size: 14px;
+      }
+
+      .movie-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 14px;
+      }
+
+      .movie-card img {
+        height: 230px;
+      }
+
+      .section-title {
+        font-size: 22px;
+      }
+    }
+
+    @media (max-width: 400px) {
+      .movie-card img {
+        height: 200px;
+      }
+
+      .search-box {
+        width: 145px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <header>
+
+    <div class="logo">
+      TV<span>Flix</span>
+    </div>
+
+    <nav>
+      <a href="#">Home</a>
+      <a href="#movies">Movies</a>
+      <a href="#categories">Categories</a>
+    </nav>
+
+    <div class="search-box">
+      🔍
+      <input
+        type="text"
+        id="searchInput"
+        placeholder="Search movies..."
+        onkeyup="searchMovies()"
+      >
+    </div>
+
+  </header>
+
+
+  <!-- HERO -->
+  <section class="hero">
+
+    <div class="hero-content">
+
+      <h1>Welcome to TVFlix</h1>
+
+      <p>
+        Watch your favorite movies and discover exciting new adventures.
+        Browse our movie collection and choose what you want to watch.
+      </p>
+
+      <div class="hero-buttons">
+
+        <a href="#movies" class="btn btn-primary">
+          ▶ Watch Now
+        </a>
+
+        <a href="#categories" class="btn btn-secondary">
+          Browse Categories
+        </a>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- MAIN CONTENT -->
+  <main class="container">
+
+    <!-- CATEGORIES -->
+    <section id="categories">
+
+      <h2 class="section-title">
+        Categories
+      </h2>
+
+      <div class="categories">
+
+        <button class="category" onclick="filterMovies('all')">
+          All
+        </button>
+
+        <button class="category" onclick="filterMovies('action')">
+          Action
+        </button>
+
+        <button class="category" onclick="filterMovies('anime')">
+          Anime
+        </button>
+
+        <button class="category" onclick="filterMovies('adventure')">
+          Adventure
+        </button>
+
+        <button class="category" onclick="filterMovies('fantasy')">
+          Fantasy
+        </button>
+
+      </div>
+
+    </section>
+
+
+    <!-- MOVIES -->
+    <section id="movies">
+
+      <h2 class="section-title">
+        Featured Movies
+      </h2>
+
+      <div class="movie-grid" id="movieGrid">
+
+
+        <!-- MOVIE 1 -->
+        <div class="movie-card" data-category="action">
+
+          <img
+            src="https://images.unsplash.com/photo-1534447677768-be436bb09401?auto=format&fit=crop&w=600&q=80"
+            alt="Action Movie"
+          >
+
+          <div class="movie-info">
+
+            <h3>Shadow Warrior</h3>
+
+            <p>Action • 2026</p>
+
+            <a href="#" class="watch-btn">
+              ▶ Watch Now
+            </a>
+
+          </div>
+
+        </div>
+
+
+        <!-- MOVIE 2 -->
+        <div class="movie-card" data-category="fantasy">
+
+          <img
+            src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=600&q=80"
+            alt="Fantasy Movie"
+          >
+
+          <div class="movie-info">
+
+            <h3>Dragon Legend</h3>
+
+            <p>Fantasy • 2026</p>
+
+            <a href="#" class="watch-btn">
+              ▶ Watch Now
+            </a>
+
+          </div>
+
+        </div>
+
+
+        <!-- MOVIE 3 -->
+        <div class="movie-card" data-category="anime">
+
+          <img
+            src="https://images.unsplash.com/photo-1578632767115-351597cf2477?auto=format&fit=crop&w=600&q=80"
+            alt="Anime Movie"
+          >
+
+          <div class="movie-info">
+
+            <h3>Hidden King</h3>
+
+            <p>Anime • 2026</p>
+
+            <a href="#" class="watch-btn">
+              ▶ Watch Now
+            </a>
+
+          </div>
+
+        </div>
+
+
+        <!-- MOVIE 4 -->
+        <div class="movie-card" data-category="adventure">
+
+          <img
+            src="https://images.unsplash.com/photo-1539650116574-75c0c6d73f6e?auto=format&fit=crop&w=600&q=80"
+            alt="Adventure Movie"
+          >
+
+          <div class="movie-info">
+
+            <h3>Battle World</h3>
+
+            <p>Adventure • 2026</p>
+
+            <a href="#" class="watch-btn">
+              ▶ Watch Now
+            </a>
+
+          </div>
+
+        </div>
+
+
+        <!-- MOVIE 5 -->
+        <div class="movie-card" data-category="action">
+
+          <img
+            src="https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=600&q=80"
+            alt="Martial Arts"
+          >
+
+          <div class="movie-info">
+
+            <h3>Martial Peak</h3>
+
+            <p>Action • 2026</p>
+
+            <a href="#" class="watch-btn">
+              ▶ Watch Now
+            </a>
+
+          </div>
+
+        </div>
+
+
+        <!-- MOVIE 6 -->
+        <div class="movie-card" data-category="fantasy">
+
+          <img
+            src="https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=600&q=80"
+            alt="Fantasy Movie"
+          >
+
+          <div class="movie-info">
+
+            <h3>Magic Realm</h3>
+
+            <p>Fantasy • 2026</p>
+
+            <a href="#" class="watch-btn">
+              ▶ Watch Now
+            </a>
+
+          </div>
+
+        </div>
+
+
+      </div>
+
+      <div id="noResults">
+        No movies found.
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- FOOTER -->
+  <footer>
+
+    <p>
+      © 2026 TVFlix. All Rights Reserved.
+    </p>
+
+  </footer>
+
+
+  <!-- JAVASCRIPT -->
+  <script>
+
+    function searchMovies() {
+
+      const input =
+        document.getElementById("searchInput")
+        .value
+        .toLowerCase();
+
+      const movies =
+        document.querySelectorAll(".movie-card");
+
+      let found = 0;
+
+      movies.forEach(movie => {
+
+        const title =
+          movie.querySelector("h3")
+          .textContent
+          .toLowerCase();
+
+        if (title.includes(input)) {
+
+          movie.style.display = "block";
+
+          found++;
+
+        } else {
+
+          movie.style.display = "none";
+
+        }
+
+      });
+
+      document.getElementById("noResults").style.display =
+        found === 0 ? "block" : "none";
+
+    }
+
+
+    function filterMovies(category) {
+
+      const movies =
+        document.querySelectorAll(".movie-card");
+
+      let found = 0;
+
+      movies.forEach(movie => {
+
+        if (
+          category === "all" ||
+          movie.dataset.category === category
+        ) {
+
+          movie.style.display = "block";
+
+          found++;
+
+        } else {
+
+          movie.style.display = "none";
+
+        }
+
+      });
+
+      document.getElementById("noResults").style.display =
+        found === 0 ? "block" : "none";
+
+    }
+
+  </script>
+
+</body>
+            </html>
