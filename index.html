@@ -1,362 +1,521 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html><html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Anj Movie - Home</title><style>
 
-<title>ANJ Movie - Movie Streaming</title>
+/* =========================
+   RESET
+========================= */
 
-<style>
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
 }
 
-body {
-  background: #0b0b0f;
-  color: white;
-  font-family: Arial, Helvetica, sans-serif;
+html{
+  scroll-behavior:smooth;
 }
 
-/* HEADER */
-header {
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-  background: rgba(10,10,15,0.98);
-  padding: 15px 5%;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 20px;
-  border-bottom: 1px solid #222;
+body{
+  background:#08090d;
+  color:white;
+  font-family:Arial,Helvetica,sans-serif;
+  min-height:100vh;
 }
 
-.logo {
-  font-size: 28px;
-  font-weight: bold;
-  color: #e50914;
-  white-space: nowrap;
+/* =========================
+   HEADER
+========================= */
+
+header{
+  position:sticky;
+  top:0;
+  z-index:9999;
+  background:rgba(8,9,13,.97);
+  backdrop-filter:blur(10px);
+  border-bottom:1px solid #24252c;
+  padding:14px 5%;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:20px;
 }
 
-.logo span {
-  color: white;
+.logo{
+  font-size:28px;
+  font-weight:bold;
+  color:#e50914;
+  white-space:nowrap;
 }
 
-nav {
-  display: flex;
-  gap: 20px;
+.logo span{
+  color:white;
 }
 
-nav a {
-  color: white;
-  text-decoration: none;
-  font-size: 15px;
+nav{
+  display:flex;
+  gap:22px;
 }
 
-nav a:hover {
-  color: #e50914;
+nav a{
+  color:#ddd;
+  text-decoration:none;
+  font-size:15px;
+  font-weight:bold;
+  cursor:pointer;
 }
 
-.search-box {
-  display: flex;
-  align-items: center;
-  background: #1c1c22;
-  border-radius: 25px;
-  padding: 8px 15px;
-  width: 250px;
+nav a:hover{
+  color:#e50914;
 }
 
-.search-box input {
-  width: 100%;
-  border: none;
-  outline: none;
-  background: transparent;
-  color: white;
-  font-size: 14px;
+.search-box{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  background:#1a1b21;
+  border:1px solid #2c2d35;
+  border-radius:25px;
+  padding:8px 14px;
+  width:240px;
 }
 
-/* HERO */
-.hero {
-  min-height: 500px;
-  display: flex;
-  align-items: center;
-  padding: 60px 6%;
+.search-box input{
+  width:100%;
+  border:none;
+  outline:none;
+  background:transparent;
+  color:white;
+  font-size:14px;
+}
+
+/* =========================
+   HERO
+========================= */
+
+.hero{
+  min-height:500px;
+  display:flex;
+  align-items:center;
+  padding:70px 7%;
   background:
-    linear-gradient(
-      to right,
-      #0b0b0f 10%,
-      rgba(11,11,15,0.75) 45%,
-      rgba(11,11,15,0.3)
-    ),
-    url("https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?auto=format&fit=crop&w=1600&q=80")
-    center/cover;
+  linear-gradient(
+    90deg,
+    #08090d 5%,
+    rgba(8,9,13,.85) 35%,
+    rgba(8,9,13,.25) 100%
+  ),
+  url("https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?auto=format&fit=crop&w=1600&q=80")
+  center/cover;
 }
 
-.hero-content {
-  max-width: 600px;
+.hero-content{
+  max-width:620px;
 }
 
-.hero h1 {
-  font-size: 52px;
-  margin-bottom: 15px;
+.hero h1{
+  font-size:55px;
+  margin-bottom:18px;
 }
 
-.hero p {
-  color: #ddd;
-  line-height: 1.6;
-  margin-bottom: 25px;
-  font-size: 16px;
+.hero h1 span{
+  color:#e50914;
 }
 
-.hero-buttons {
-  display: flex;
-  gap: 12px;
+.hero p{
+  color:#ddd;
+  line-height:1.7;
+  margin-bottom:28px;
 }
 
-.btn {
-  display: inline-block;
-  padding: 13px 25px;
-  border-radius: 5px;
-  text-decoration: none;
-  font-weight: bold;
-  cursor: pointer;
-  border: none;
+.hero-buttons{
+  display:flex;
+  gap:12px;
+  flex-wrap:wrap;
 }
 
-.btn-primary {
-  background: #e50914;
-  color: white;
+.btn{
+  display:inline-block;
+  padding:13px 24px;
+  border-radius:6px;
+  text-decoration:none;
+  font-weight:bold;
+  border:none;
+  cursor:pointer;
 }
 
-.btn-primary:hover {
-  background: #b20710;
+.btn-primary{
+  background:#e50914;
+  color:white;
 }
 
-.btn-secondary {
-  background: rgba(255,255,255,0.2);
-  color: white;
+.btn-primary:hover{
+  background:#b20710;
 }
 
-.btn-secondary:hover {
-  background: rgba(255,255,255,0.3);
+.btn-secondary{
+  background:#292a31;
+  color:white;
 }
 
-/* CONTENT */
-.container {
-  width: 90%;
-  max-width: 1400px;
-  margin: auto;
-  padding: 40px 0;
+.btn-secondary:hover{
+  background:#3b3c44;
 }
 
-.section-title {
-  font-size: 25px;
-  margin-bottom: 20px;
+/* =========================
+   MAIN
+========================= */
+
+.container{
+  width:90%;
+  max-width:1400px;
+  margin:auto;
+  padding:45px 0;
 }
 
-/* GENRES */
-.genres {
-  display: grid;
-  grid-template-columns: repeat(6, 1fr);
-  gap: 10px;
-  margin-bottom: 40px;
+.section-title{
+  font-size:27px;
+  margin-bottom:25px;
 }
 
-.genre {
-  background: #1c1c22;
-  color: white;
-  border: 1px solid #333;
-  padding: 12px 8px;
-  border-radius: 6px;
-  cursor: pointer;
-  text-align: center;
-  font-size: 14px;
+/* =========================
+   MOVIE GRID
+========================= */
+
+.movie-grid{
+  display:grid;
+  grid-template-columns:repeat(5,1fr);
+  gap:20px;
 }
 
-.genre:hover {
-  background: #e50914;
-  border-color: #e50914;
+.movie-card{
+  background:#14151b;
+  border-radius:10px;
+  overflow:hidden;
+  border:1px solid #24252d;
+  transition:.3s;
 }
 
-/* MOVIE GRID */
-.movie-grid {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 20px;
+.movie-card:hover{
+  transform:translateY(-7px);
+  box-shadow:0 12px 30px rgba(0,0,0,.6);
 }
 
-.movie-card {
-  background: #15151b;
-  border-radius: 8px;
-  overflow: hidden;
-  transition: 0.3s;
+.movie-card img{
+  width:100%;
+  height:280px;
+  object-fit:cover;
+  display:block;
 }
 
-.movie-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 10px 25px rgba(0,0,0,0.6);
+.movie-info{
+  padding:14px;
 }
 
-.movie-card img {
-  width: 100%;
-  height: 280px;
-  object-fit: cover;
-  display: block;
+.movie-info h3{
+  font-size:16px;
+  margin-bottom:7px;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
 }
 
-.movie-info {
-  padding: 12px;
+.movie-info p{
+  color:#aaa;
+  font-size:13px;
+  margin-bottom:12px;
 }
 
-.movie-info h3 {
-  font-size: 16px;
-  margin-bottom: 7px;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+.watch-btn{
+  display:block;
+  text-align:center;
+  background:#e50914;
+  color:white;
+  padding:10px;
+  border-radius:5px;
+  text-decoration:none;
+  font-size:14px;
+  font-weight:bold;
 }
 
-.movie-info p {
-  color: #aaa;
-  font-size: 13px;
-  margin-bottom: 10px;
+.watch-btn:hover{
+  background:#b20710;
 }
 
-.watch-btn {
-  display: block;
-  text-align: center;
-  background: #e50914;
-  color: white;
-  padding: 9px;
-  border-radius: 4px;
-  text-decoration: none;
-  font-size: 14px;
-  font-weight: bold;
+/* =========================
+   GENRE PAGE
+========================= */
+
+#genrePage{
+  display:none;
+  min-height:70vh;
+  padding:50px 5%;
+  background:
+  radial-gradient(circle at top right,#34101a 0%,transparent 35%),
+  radial-gradient(circle at bottom left,#101c35 0%,transparent 35%),
+  #090a0f;
 }
 
-.watch-btn:hover {
-  background: #b20710;
+.genre-header{
+  text-align:center;
+  margin-bottom:40px;
 }
 
-/* NO RESULTS */
-#noResults {
-  display: none;
-  color: #aaa;
-  text-align: center;
-  padding: 40px;
-  font-size: 18px;
+.genre-header h2{
+  font-size:40px;
+  margin-bottom:12px;
 }
 
-/* FOOTER */
-footer {
-  text-align: center;
-  padding: 30px;
-  margin-top: 40px;
-  background: #08080b;
-  color: #777;
-  border-top: 1px solid #222;
+.genre-header p{
+  color:#aaa;
 }
 
-/* TABLET */
-@media (max-width: 1100px) {
+/* =========================
+   42 GENRE CARDS
+========================= */
 
-  .movie-grid {
-    grid-template-columns: repeat(4, 1fr);
+.genre-grid{
+  max-width:1400px;
+  margin:auto;
+  display:grid;
+  grid-template-columns:repeat(6,1fr);
+  gap:16px;
+}
+
+.genre-card{
+  position:relative;
+  min-height:120px;
+  padding:20px;
+  border-radius:14px;
+  overflow:hidden;
+  cursor:pointer;
+  display:flex;
+  align-items:flex-end;
+  border:1px solid rgba(255,255,255,.12);
+  background:
+  linear-gradient(
+    135deg,
+    rgba(229,9,20,.8),
+    rgba(30,30,40,.95)
+  );
+  transition:.3s;
+}
+
+.genre-card:nth-child(2n){
+  background:
+  linear-gradient(
+    135deg,
+    rgba(35,100,200,.8),
+    rgba(20,20,30,.95)
+  );
+}
+
+.genre-card:nth-child(3n){
+  background:
+  linear-gradient(
+    135deg,
+    rgba(120,40,180,.8),
+    rgba(20,20,30,.95)
+  );
+}
+
+.genre-card:nth-child(4n){
+  background:
+  linear-gradient(
+    135deg,
+    rgba(20,140,110,.8),
+    rgba(15,25,30,.95)
+  );
+}
+
+.genre-card:hover{
+  transform:translateY(-6px) scale(1.02);
+  box-shadow:0 12px 30px rgba(0,0,0,.5);
+}
+
+.genre-card h3{
+  font-size:17px;
+  position:relative;
+  z-index:2;
+}
+
+.genre-card::after{
+  content:"›";
+  position:absolute;
+  right:18px;
+  top:15px;
+  font-size:30px;
+  color:rgba(255,255,255,.5);
+}
+
+/* =========================
+   GENRE MOVIES
+========================= */
+
+#genreMovies{
+  display:none;
+  padding:45px 5%;
+  background:#08090d;
+}
+
+.genre-movie-header{
+  max-width:1400px;
+  margin:0 auto 25px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:20px;
+}
+
+.genre-movie-header h2{
+  font-size:30px;
+}
+
+.back-btn{
+  background:#292a31;
+  color:white;
+  border:none;
+  padding:10px 18px;
+  border-radius:6px;
+  cursor:pointer;
+  font-weight:bold;
+}
+
+.back-btn:hover{
+  background:#e50914;
+}
+
+.genre-movie-grid{
+  max-width:1400px;
+  margin:auto;
+  display:grid;
+  grid-template-columns:repeat(5,1fr);
+  gap:20px;
+}
+
+.empty-message{
+  text-align:center;
+  color:#aaa;
+  padding:50px;
+  display:none;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+footer{
+  text-align:center;
+  padding:30px;
+  background:#050609;
+  border-top:1px solid #222;
+  color:#777;
+}
+
+/* =========================
+   TABLET
+========================= */
+
+@media(max-width:1100px){
+
+  .movie-grid,
+  .genre-movie-grid{
+    grid-template-columns:repeat(4,1fr);
   }
 
-  .genres {
-    grid-template-columns: repeat(4, 1fr);
+  .genre-grid{
+    grid-template-columns:repeat(4,1fr);
   }
 
-  .movie-card img {
-    height: 260px;
-  }
 }
 
-/* MOBILE */
-@media (max-width: 700px) {
+/* =========================
+   MOBILE
+========================= */
 
-  header {
-    flex-wrap: wrap;
-    padding: 12px 4%;
+@media(max-width:700px){
+
+  header{
+    flex-wrap:wrap;
+    padding:12px 4%;
   }
 
-  .logo {
-    font-size: 24px;
+  .logo{
+    font-size:23px;
   }
 
-  nav {
-    order: 3;
-    width: 100%;
-    justify-content: center;
+  nav{
+    order:3;
+    width:100%;
+    justify-content:center;
+    gap:18px;
   }
 
-  .search-box {
-    width: 170px;
+  nav a{
+    font-size:13px;
   }
 
-  .hero {
-    min-height: 450px;
-    padding: 40px 5%;
+  .search-box{
+    width:160px;
   }
 
-  .hero h1 {
-    font-size: 38px;
+  .hero{
+    min-height:450px;
+    padding:45px 5%;
   }
 
-  .hero p {
-    font-size: 14px;
+  .hero h1{
+    font-size:38px;
   }
 
-  .genres {
-    grid-template-columns: repeat(2, 1fr);
+  .hero p{
+    font-size:14px;
   }
 
-  .movie-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 14px;
+  .movie-grid,
+  .genre-movie-grid{
+    grid-template-columns:repeat(2,1fr);
+    gap:14px;
   }
 
-  .movie-card img {
-    height: 230px;
+  .movie-card img{
+    height:230px;
   }
 
-  .section-title {
-    font-size: 22px;
+  .genre-grid{
+    grid-template-columns:repeat(2,1fr);
+    gap:12px;
   }
+
+  .genre-card{
+    min-height:100px;
+    padding:15px;
+  }
+
+  .genre-card h3{
+    font-size:14px;
+  }
+
+  .genre-header h2{
+    font-size:30px;
+  }
+
+  .genre-movie-header{
+    align-items:flex-start;
+    flex-direction:column;
+  }
+
 }
 
-@media (max-width: 400px) {
-
-  .movie-card img {
-    height: 200px;
-  }
-
-  .search-box {
-    width: 145px;
-  }
-}
-</style>
-</head>
-
-<body>
-
-<!-- HEADER -->
-<header>
-
-  <div class="logo">
-    ANJ<span>Movie</span>
-  </div>
-
-  <nav>
-    <a href="#">Home</a>
-    <a href="#movies">Movies</a>
-    <a href="#genres">Genres</a>
-  </nav>
-
-  <div class="search-box">
+</style></head><body><!-- =========================
+     HEADER
+========================= --><header>  <div class="logo">
+    Anj <span>Movie</span>
+  </div>  <nav>
+    <a onclick="showHome()">Home</a>
+    <a onclick="showGenres()">Genre</a>
+  </nav>  <div class="search-box">
     🔍
     <input
       type="text"
@@ -364,458 +523,804 @@ footer {
       placeholder="Search movies..."
       onkeyup="searchMovies()"
     >
+  </div></header><!-- =========================
+     HOME PAGE
+========================= --><div id="homePage">  <section class="hero"><div class="hero-content">
+
+  <h1>
+    Welcome to <span>Anj Movie</span>
+  </h1>
+
+  <p>
+    Watch your favorite movies and discover exciting new adventures.
+    Browse our movie collection and choose what you want to watch.
+  </p>
+
+  <div class="hero-buttons">
+
+    <a href="#movies" class="btn btn-primary">
+      ▶ Watch Now
+    </a>
+
+    <button onclick="showGenres()" class="btn btn-secondary">
+      Browse Genres
+    </button>
+
   </div>
 
-</header>
+</div>
+
+  </section>  <main class="container" id="movies"><h2 class="section-title">
+  Featured Movies
+</h2>
+
+<div class="movie-grid" id="movieGrid">
 
 
-<!-- HERO -->
-<section class="hero">
+  <!-- MOVIE 1 -->
 
-  <div class="hero-content">
+  <div class="movie-card">
 
-    <h1>Welcome to ANJ Movie</h1>
+    <img
+    src="https://images.unsplash.com/photo-1534447677768-be436bb09401?auto=format&fit=crop&w=600&q=80"
+    alt="Shadow Warrior">
 
-    <p>
-      Watch your favorite movies and discover exciting new adventures.
-      Browse our movie collection and choose what you want to watch.
-    </p>
+    <div class="movie-info">
 
-    <div class="hero-buttons">
+      <h3>Shadow Warrior</h3>
 
-      <a href="#movies" class="btn btn-primary">
+      <p>Action • 2026</p>
+
+      <a href="movie1.html" class="watch-btn">
         ▶ Watch Now
-      </a>
-
-      <a href="#genres" class="btn btn-secondary">
-        Browse Genres
       </a>
 
     </div>
 
   </div>
 
-</section>
-
-
-<!-- MAIN -->
-<main class="container">
-
-<!-- 42 GENRES -->
-<section id="genres">
-
-<h2 class="section-title">
-42 Movie Genres
-</h2>
 
-<div class="genres">
-
-<button class="genre" onclick="filterMovies('all')">All</button>
-<button class="genre" onclick="filterMovies('action')">Action</button>
-<button class="genre" onclick="filterMovies('adventure')">Adventure</button>
-<button class="genre" onclick="filterMovies('animation')">Animation</button>
-<button class="genre" onclick="filterMovies('anime')">Anime</button>
-<button class="genre" onclick="filterMovies('comedy')">Comedy</button>
-<button class="genre" onclick="filterMovies('crime')">Crime</button>
-<button class="genre" onclick="filterMovies('drama')">Drama</button>
-<button class="genre" onclick="filterMovies('fantasy')">Fantasy</button>
-<button class="genre" onclick="filterMovies('horror')">Horror</button>
-<button class="genre" onclick="filterMovies('mystery')">Mystery</button>
-<button class="genre" onclick="filterMovies('romance')">Romance</button>
-<button class="genre" onclick="filterMovies('scifi')">Sci-Fi</button>
-<button class="genre" onclick="filterMovies('thriller')">Thriller</button>
-<button class="genre" onclick="filterMovies('war')">War</button>
-<button class="genre" onclick="filterMovies('western')">Western</button>
-<button class="genre" onclick="filterMovies('martialarts')">Martial Arts</button>
-<button class="genre" onclick="filterMovies('superhero')">Superhero</button>
-<button class="genre" onclick="filterMovies('historical')">Historical</button>
-<button class="genre" onclick="filterMovies('documentary')">Documentary</button>
-<button class="genre" onclick="filterMovies('family')">Family</button>
-<button class="genre" onclick="filterMovies('musical')">Musical</button>
-<button class="genre" onclick="filterMovies('sports')">Sports</button>
-<button class="genre" onclick="filterMovies('biography')">Biography</button>
-<button class="genre" onclick="filterMovies('detective')">Detective</button>
-<button class="genre" onclick="filterMovies('disaster')">Disaster</button>
-<button class="genre" onclick="filterMovies('psychological')">Psychological</button>
-<button class="genre" onclick="filterMovies('samurai')">Samurai</button>
-<button class="genre" onclick="filterMovies('ninja')">Ninja</button>
-<button class="genre" onclick="filterMovies('wuxia')">Wuxia</button>
-<button class="genre" onclick="filterMovies('xianxia')">Xianxia</button>
-<button class="genre" onclick="filterMovies('cultivation')">Cultivation</button>
-<button class="genre" onclick="filterMovies('isekai')">Isekai</button>
-<button class="genre" onclick="filterMovies('mecha')">Mecha</button>
-<button class="genre" onclick="filterMovies('school')">School</button>
-<button class="genre" onclick="filterMovies('supernatural')">Supernatural</button>
-<button class="genre" onclick="filterMovies('vampire')">Vampire</button>
-<button class="genre" onclick="filterMovies('zombie')">Zombie</button>
-<button class="genre" onclick="filterMovies('timetravel')">Time Travel</button>
-<button class="genre" onclick="filterMovies('survival')">Survival</button>
-<button class="genre" onclick="filterMovies('spy')">Spy</button>
-<button class="genre" onclick="filterMovies('actioncomedy')">Action Comedy</button>
+  <!-- MOVIE 2 -->
 
-</div>
+  <div class="movie-card">
 
-</section>
+    <img
+    src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=600&q=80"
+    alt="Dragon Legend">
 
+    <div class="movie-info">
 
-<!-- MOVIES -->
-<section id="movies">
+      <h3>Dragon Legend</h3>
 
-<h2 class="section-title">
-Featured Movies
-</h2>
+      <p>Fantasy • 2026</p>
 
-<div class="movie-grid" id="movieGrid">
+      <a href="movie2.html" class="watch-btn">
+        ▶ Watch Now
+      </a>
 
+    </div>
 
-<!-- MOVIE 1 -->
-<div class="movie-card" data-category="action">
+  </div>
 
-<img src="https://images.unsplash.com/photo-1534447677768-be436bb09401?auto=format&fit=crop&w=600&q=80" alt="Shadow Warrior">
 
-<div class="movie-info">
-<h3>Shadow Warrior</h3>
-<p>Action • 2026</p>
+  <!-- MOVIE 3 -->
 
-<a href="movie1.html" class="watch-btn">
-▶ Watch Now
-</a>
+  <div class="movie-card">
 
-</div>
-</div>
+    <img
+    src="https://images.unsplash.com/photo-1578632767115-351597cf2477?auto=format&fit=crop&w=600&q=80"
+    alt="Hidden King">
 
+    <div class="movie-info">
 
-<!-- MOVIE 2 -->
-<div class="movie-card" data-category="fantasy">
+      <h3>Hidden King</h3>
 
-<img src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=600&q=80" alt="Dragon Legend">
+      <p>Anime • 2026</p>
 
-<div class="movie-info">
-<h3>Dragon Legend</h3>
-<p>Fantasy • 2026</p>
+      <a href="movie3.html" class="watch-btn">
+        ▶ Watch Now
+      </a>
 
-<a href="#" class="watch-btn">
-▶ Watch Now
-</a>
+    </div>
 
-</div>
-</div>
+  </div>
 
 
-<!-- MOVIE 3 -->
-<div class="movie-card" data-category="anime">
+  <!-- MOVIE 4 -->
 
-<img src="https://images.unsplash.com/photo-1578632767115-351597cf2477?auto=format&fit=crop&w=600&q=80" alt="Hidden King">
+  <div class="movie-card">
 
-<div class="movie-info">
-<h3>Hidden King</h3>
-<p>Anime • 2026</p>
+    <img
+    src="https://images.unsplash.com/photo-1539650116574-75c0c6d73f6e?auto=format&fit=crop&w=600&q=80"
+    alt="Battle World">
 
-<a href="#" class="watch-btn">
-▶ Watch Now
-</a>
+    <div class="movie-info">
 
-</div>
-</div>
+      <h3>Battle World</h3>
 
+      <p>Adventure • 2026</p>
 
-<!-- MOVIE 4 -->
-<div class="movie-card" data-category="adventure">
+      <a href="movie4.html" class="watch-btn">
+        ▶ Watch Now
+      </a>
 
-<img src="https://images.unsplash.com/photo-1539650116574-75c0c6d73f6e?auto=format&fit=crop&w=600&q=80" alt="Battle World">
+    </div>
 
-<div class="movie-info">
-<h3>Battle World</h3>
-<p>Adventure • 2026</p>
+  </div>
 
-<a href="#" class="watch-btn">
-▶ Watch Now
-</a>
 
-</div>
-</div>
+  <!-- MOVIE 5 -->
 
+  <div class="movie-card">
 
-<!-- MOVIE 5 -->
-<div class="movie-card" data-category="martialarts">
+    <img
+    src="https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=600&q=80"
+    alt="Martial Peak">
 
-<img src="https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=600&q=80" alt="Martial Peak">
+    <div class="movie-info">
 
-<div class="movie-info">
-<h3>Martial Peak</h3>
-<p>Martial Arts • 2026</p>
+      <h3>Martial Peak</h3>
 
-<a href="#" class="watch-btn">
-▶ Watch Now
-</a>
+      <p>Action • 2026</p>
 
-</div>
-</div>
+      <a href="movie5.html" class="watch-btn">
+        ▶ Watch Now
+      </a>
 
+    </div>
 
-<!-- MOVIE 6 -->
-<div class="movie-card" data-category="fantasy">
+  </div>
 
-<img src="https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=600&q=80" alt="Magic Realm">
 
-<div class="movie-info">
-<h3>Magic Realm</h3>
-<p>Fantasy • 2026</p>
+  <!-- MOVIE 6 -->
 
-<a href="#" class="watch-btn">
-▶ Watch Now
-</a>
+  <div class="movie-card">
 
-</div>
-</div>
+    <img
+    src="https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=600&q=80"
+    alt="Magic Realm">
 
+    <div class="movie-info">
 
-<!-- MOVIE 7 -->
-<div class="movie-card" data-category="scifi">
+      <h3>Magic Realm</h3>
 
-<img src="https://images.unsplash.com/photo-1446776877081-d282a0f896e2?auto=format&fit=crop&w=600&q=80" alt="Space Mission">
+      <p>Fantasy • 2026</p>
 
-<div class="movie-info">
-<h3>Space Mission</h3>
-<p>Sci-Fi • 2026</p>
+      <a href="movie6.html" class="watch-btn">
+        ▶ Watch Now
+      </a>
 
-<a href="#" class="watch-btn">
-▶ Watch Now
-</a>
+    </div>
 
-</div>
-</div>
+  </div>
 
 
-<!-- MOVIE 8 -->
-<div class="movie-card" data-category="horror">
+  <!-- MOVIE 7 -->
 
-<img src="https://images.unsplash.com/photo-1509248961158-e54f6934749c?auto=format&fit=crop&w=600&q=80" alt="Dark Night">
+  <div class="movie-card">
 
-<div class="movie-info">
-<h3>Dark Night</h3>
-<p>Horror • 2026</p>
+    <img
+    src="https://images.unsplash.com/photo-1518709594023-6eab9bab7b23?auto=format&fit=crop&w=600&q=80"
+    alt="Lost Kingdom">
 
-<a href="#" class="watch-btn">
-▶ Watch Now
-</a>
+    <div class="movie-info">
 
-</div>
-</div>
+      <h3>Lost Kingdom</h3>
 
+      <p>Adventure • 2026</p>
 
-<!-- MOVIE 9 -->
-<div class="movie-card" data-category="romance">
+      <a href="movie7.html" class="watch-btn">
+        ▶ Watch Now
+      </a>
 
-<img src="https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?auto=format&fit=crop&w=600&q=80" alt="Love Story">
+    </div>
 
-<div class="movie-info">
-<h3>Love Story</h3>
-<p>Romance • 2026</p>
+  </div>
 
-<a href="#" class="watch-btn">
-▶ Watch Now
-</a>
 
-</div>
-</div>
+  <!-- MOVIE 8 -->
 
+  <div class="movie-card">
 
-<!-- MOVIE 10 -->
-<div class="movie-card" data-category="comedy">
+    <img
+    src="https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?auto=format&fit=crop&w=600&q=80"
+    alt="Space War">
 
-<img src="https://images.unsplash.com/photo-1527224857830-43a7acc85260?auto=format&fit=crop&w=600&q=80" alt="Funny Days">
+    <div class="movie-info">
 
-<div class="movie-info">
-<h3>Funny Days</h3>
-<p>Comedy • 2026</p>
+      <h3>Space War</h3>
 
-<a href="#" class="watch-btn">
-▶ Watch Now
-</a>
+      <p>Sci-Fi • 2026</p>
 
-</div>
-</div>
+      <a href="movie8.html" class="watch-btn">
+        ▶ Watch Now
+      </a>
 
+    </div>
 
-<!-- MOVIE 11 -->
-<div class="movie-card" data-category="superhero">
+  </div>
 
-<img src="https://images.unsplash.com/photo-1531259683007-016a7b628fc3?auto=format&fit=crop&w=600&q=80" alt="Super Hero">
 
-<div class="movie-info">
-<h3>Super Hero</h3>
-<p>Superhero • 2026</p>
+  <!-- MOVIE 9 -->
 
-<a href="#" class="watch-btn">
-▶ Watch Now
-</a>
+  <div class="movie-card">
 
-</div>
-</div>
+    <img
+    src="https://images.unsplash.com/photo-1518709779341-56cf4535e94b?auto=format&fit=crop&w=600&q=80"
+    alt="Dark Mystery">
 
+    <div class="movie-info">
 
-<!-- MOVIE 12 -->
-<div class="movie-card" data-category="war">
+      <h3>Dark Mystery</h3>
 
-<img src="https://images.unsplash.com/photo-1519074069444-1ba4fff66d16?auto=format&fit=crop&w=600&q=80" alt="War Zone">
+      <p>Mystery • 2026</p>
 
-<div class="movie-info">
-<h3>War Zone</h3>
-<p>War • 2026</p>
+      <a href="movie9.html" class="watch-btn">
+        ▶ Watch Now
+      </a>
 
-<a href="#" class="watch-btn">
-▶ Watch Now
-</a>
+    </div>
 
-</div>
-</div>
+  </div>
 
 
-<!-- MOVIE 13 -->
-<div class="movie-card" data-category="mystery">
+  <!-- MOVIE 10 -->
 
-<img src="https://images.unsplash.com/photo-1518709594023-6eab9bab7b23?auto=format&fit=crop&w=600&q=80" alt="Mystery Island">
+  <div class="movie-card">
 
-<div class="movie-info">
-<h3>Mystery Island</h3>
-<p>Mystery • 2026</p>
+    <img
+    src="https://images.unsplash.com/photo-1519608487953-e999c86e7455?auto=format&fit=crop&w=600&q=80"
+    alt="Frozen World">
 
-<a href="#" class="watch-btn">
-▶ Watch Now
-</a>
+    <div class="movie-info">
 
-</div>
-</div>
+      <h3>Frozen World</h3>
 
+      <p>Fantasy • 2026</p>
 
-<!-- MOVIE 14 -->
-<div class="movie-card" data-category="survival">
+      <a href="movie10.html" class="watch-btn">
+        ▶ Watch Now
+      </a>
 
-<img src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=600&q=80" alt="Survival">
+    </div>
 
-<div class="movie-info">
-<h3>Last Survivor</h3>
-<p>Survival • 2026</p>
+  </div>
 
-<a href="#" class="watch-btn">
-▶ Watch Now
-</a>
 
-</div>
-</div>
+  <!-- MOVIE 11 -->
 
+  <div class="movie-card">
 
-<!-- MOVIE 15 -->
-<div class="movie-card" data-category="supernatural">
+    <img
+    src="https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=600&q=80"
+    alt="Mountain Hero">
 
-<img src="https://images.unsplash.com/photo-1519608487953-e999c86e7455?auto=format&fit=crop&w=600&q=80" alt="Supernatural">
+    <div class="movie-info">
 
-<div class="movie-info">
-<h3>Beyond Darkness</h3>
-<p>Supernatural • 2026</p>
+      <h3>Mountain Hero</h3>
 
-<a href="#" class="watch-btn">
-▶ Watch Now
-</a>
+      <p>Drama • 2026</p>
 
-</div>
-</div>
+      <a href="movie11.html" class="watch-btn">
+        ▶ Watch Now
+      </a>
+
+    </div>
+
+  </div>
+
+
+  <!-- MOVIE 12 -->
+
+  <div class="movie-card">
+
+    <img
+    src="https://images.unsplash.com/photo-1534447677768-be436bb09401?auto=format&fit=crop&w=600&q=80"
+    alt="Warrior Soul">
+
+    <div class="movie-info">
+
+      <h3>Warrior Soul</h3>
+
+      <p>Action • 2026</p>
+
+      <a href="movie12.html" class="watch-btn">
+        ▶ Watch Now
+      </a>
+
+    </div>
+
+  </div>
+
+
+  <!-- MOVIE 13 -->
+
+  <div class="movie-card">
+
+    <img
+    src="https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=600&q=80"
+    alt="Ocean Quest">
+
+    <div class="movie-info">
+
+      <h3>Ocean Quest</h3>
+
+      <p>Adventure • 2026</p>
+
+      <a href="movie13.html" class="watch-btn">
+        ▶ Watch Now
+      </a>
+
+    </div>
+
+  </div>
+
+
+  <!-- MOVIE 14 -->
+
+  <div class="movie-card">
+
+    <img
+    src="https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=600&q=80"
+    alt="Legend of Fire">
+
+    <div class="movie-info">
+
+      <h3>Legend of Fire</h3>
+
+      <p>Fantasy • 2026</p>
+
+      <a href="movie14.html" class="watch-btn">
+        ▶ Watch Now
+      </a>
+
+    </div>
+
+  </div>
+
+
+  <!-- MOVIE 15 -->
+
+  <div class="movie-card">
+
+    <img
+    src="https://images.unsplash.com/photo-1440404653325-ab127d49abc1?auto=format&fit=crop&w=600&q=80"
+    alt="Final Mission">
+
+    <div class="movie-info">
+
+      <h3>Final Mission</h3>
+
+      <p>Action • 2026</p>
+
+      <a href="movie15.html" class="watch-btn">
+        ▶ Watch Now
+      </a>
+
+    </div>
+
+  </div>
 
 
 </div>
 
-<div id="noResults">
-No movies found.
-</div>
-
-</section>
-
-</main>
-
-
-<!-- FOOTER -->
-<footer>
+  </main></div><!-- =========================
+     GENRE PAGE
+========================= --><section id="genrePage">  <div class="genre-header"><h2>🎬 Explore Genres</h2>
 
 <p>
-© 2026 ANJ Movie. All Rights Reserved.
+  Choose a genre to discover movies you may like.
 </p>
 
-</footer>
+  </div>  <div class="genre-grid"><div class="genre-card" onclick="showGenreMovies('Action')">
+  <h3>🔥 Action</h3>
+</div>
+
+<div class="genre-card" onclick="showGenreMovies('Adventure')">
+  <h3>🏔️ Adventure</h3>
+</div>
+
+<div class="genre-card" onclick="showGenreMovies('Animation')">
+  <h3>🎨 Animation</h3>
+</div>
+
+<div class="genre-card" onclick="showGenreMovies('Anime')">
+  <h3>🍥 Anime</h3>
+</div>
+
+<div class="genre-card" onclick="showGenreMovies('Comedy')">
+  <h3>😂 Comedy</h3>
+</div>
+
+<div class="genre-card" onclick="showGenreMovies('Drama')">
+  <h3>🎭 Drama</h3>
+</div>
+
+<div class="genre-card" onclick="showGenreMovies('Fantasy')">
+  <h3>🧙 Fantasy</h3>
+</div>
+
+<div class="genre-card" onclick="showGenreMovies('Horror')">
+  <h3>👻 Horror</h3>
+</div>
+
+<div class="genre-card" onclick="showGenreMovies('Mystery')">
+  <h3>🔎 Mystery</h3>
+</div>
+
+<div class="genre-card" onclick="showGenreMovies('Romance')">
+  <h3>❤️ Romance</h3>
+</div>
+
+<div class="genre-card" onclick="showGenreMovies('Sci-Fi')">
+  <h3>🚀 Sci-Fi</h3>
+</div>
+
+<div class="genre-card" onclick="showGenreMovies('Thriller')">
+  <h3>😱 Thriller</h3>
+</div>
+
+<div class="genre-card" onclick="showGenreMovies('Crime')">
+  <h3>🕵️ Crime</h3>
+</div>
+
+<div class="genre-card" onclick="showGenreMovies('Documentary')">
+  <h3>📽️ Documentary</h3>
+</div>
+
+<div class="genre-card" onclick="showGenreMovies('Family')">
+  <h3>👨‍👩‍👧 Family</h3>
+</div>
+
+<div class="genre-card" onclick="showGenreMovies('History')">
+  <h3>📜 History</h3>
+</div>
+
+<div class="genre-card" onclick="showGenreMovies('Music')">
+  <h3>🎵 Music</h3>
+</div>
+
+<div class="genre-card" onclick="showGenreMovies('War')">
+  <h3>⚔️ War</h3>
+</div>
+
+<div class="genre-card" onclick="showGenreMovies('Western')">
+  <h3>🤠 Western</h3>
+</div>
+
+<div class="genre-card" onclick="showGenreMovies('Sports')">
+  <h3>🏆 Sports</h3>
+</div>
+
+<div class="genre-card" onclick="showGenreMovies('Superhero')">
+  <h3>🦸 Superhero</h3>
+</div>
+
+<div class="genre-card" onclick="showGenreMovies('Martial Arts')">
+  <h3>🥋 Martial Arts</h3>
+</div>
+
+<div class="genre-card" onclick="showGenreMovies('Historical')">
+  <h3>🏰 Historical</h3>
+</div>
+
+<div class="genre-card" onclick="showGenreMovies('Psychological')">
+  <h3>🧠 Psychological</h3>
+</div>
+
+<div class="genre-card" onclick="showGenreMovies('Musical')">
+  <h3>🎤 Musical</h3>
+</div>
+
+<div class="genre-card" onclick="showGenreMovies('Biography')">
+  <h3>👤 Biography</h3>
+</div>
+
+<div class="genre-card" onclick="showGenreMovies('Coming of Age')">
+  <h3>🌱 Coming of Age</h3>
+</div>
+
+<div class="genre-card" onclick="showGenreMovies('Family Adventure')">
+  <h3>🌍 Family Adventure</h3>
+</div>
+
+<div class="genre-card" onclick="showGenreMovies('Dark Fantasy')">
+  <h3>🌑 Dark Fantasy</h3>
+</div>
+
+<div class="genre-card" onclick="showGenreMovies('Epic')">
+  <h3>⚡ Epic</h3>
+</div>
+
+<div class="genre-card" onclick="showGenreMovies('Space')">
+  <h3>🌌 Space</h3>
+</div>
+
+<div class="genre-card" onclick="showGenreMovies('Monster')">
+  <h3>👹 Monster</h3>
+</div>
+
+<div class="genre-card" onclick="showGenreMovies('Supernatural')">
+  <h3>🔮 Supernatural</h3>
+</div>
+
+<div class="genre-card" onclick="showGenreMovies('Zombie')">
+  <h3>🧟 Zombie</h3>
+</div>
+
+<div class="genre-card" onclick="showGenreMovies('Apocalypse')">
+  <h3>☄️ Apocalypse</h3>
+</div>
+
+<div class="genre-card" onclick="showGenreMovies('Spy')">
+  <h3>🕶️ Spy</h3>
+</div>
+
+<div class="genre-card" onclick="showGenreMovies('Detective')">
+  <h3>🔍 Detective</h3>
+</div>
+
+<div class="genre-card" onclick="showGenreMovies('Heist')">
+  <h3>💰 Heist</h3>
+</div>
+
+<div class="genre-card" onclick="showGenreMovies('Survival')">
+  <h3>🏕️ Survival</h3>
+</div>
+
+<div class="genre-card" onclick="showGenreMovies('Disaster')">
+  <h3>🌪️ Disaster</h3>
+</div>
+
+<div class="genre-card" onclick="showGenreMovies('Time Travel')">
+  <h3>⏳ Time Travel</h3>
+</div>
+
+<div class="genre-card" onclick="showGenreMovies('Space Opera')">
+  <h3>🚀 Space Opera</h3>
+</div>
+
+  </div></section><!-- =========================
+     GENRE MOVIE RESULTS
+========================= --><section id="genreMovies">  <div class="genre-movie-header"><h2 id="selectedGenre">
+  Movies
+</h2>
+
+<button class="back-btn" onclick="showGenres()">
+  ← Back to Genres
+</button>
+
+  </div>  <div class="genre-movie-grid" id="genreMovieGrid">  </div>  <div class="empty-message" id="emptyMessage">
+    No movies available in this genre yet.
+  </div></section><!-- =========================
+     FOOTER
+========================= --><footer>  <p>
+    © 2026 Anj Movie. All Rights Reserved.
+  </p></footer><script>
+
+/* =========================
+   MOVIE DATA FOR GENRES
+========================= */
+
+const genreMovies = {
+
+  "Action":[
+    ["Shadow Warrior","movie1.html"],
+    ["Martial Peak","movie5.html"],
+    ["Warrior Soul","movie12.html"],
+    ["Final Mission","movie15.html"]
+  ],
+
+  "Adventure":[
+    ["Battle World","movie4.html"],
+    ["Lost Kingdom","movie7.html"],
+    ["Ocean Quest","movie13.html"]
+  ],
+
+  "Fantasy":[
+    ["Dragon Legend","movie2.html"],
+    ["Magic Realm","movie6.html"],
+    ["Frozen World","movie10.html"],
+    ["Legend of Fire","movie14.html"]
+  ],
+
+  "Anime":[
+    ["Hidden King","movie3.html"]
+  ],
+
+  "Drama":[
+    ["Mountain Hero","movie11.html"]
+  ],
+
+  "Sci-Fi":[
+    ["Space War","movie8.html"]
+  ],
+
+  "Mystery":[
+    ["Dark Mystery","movie9.html"]
+  ],
+
+  "Martial Arts":[
+    ["Martial Peak","movie5.html"],
+    ["Shadow Warrior","movie1.html"]
+  ],
+
+  "Animation":[
+    ["Hidden King","movie3.html"]
+  ],
+
+  "Dark Fantasy":[
+    ["Dragon Legend","movie2.html"],
+    ["Magic Realm","movie6.html"]
+  ],
+
+  "Epic":[
+    ["Battle World","movie4.html"],
+    ["Legend of Fire","movie14.html"]
+  ],
+
+  "Space":[
+    ["Space War","movie8.html"]
+  ],
+
+  "Family Adventure":[
+    ["Lost Kingdom","movie7.html"],
+    ["Ocean Quest","movie13.html"]
+  ]
+
+};
 
 
-<!-- JAVASCRIPT -->
-<script>
+/* =========================
+   SHOW HOME
+========================= */
 
-function searchMovies() {
+function showHome(){
+
+  document.getElementById("homePage").style.display="block";
+
+  document.getElementById("genrePage").style.display="none";
+
+  document.getElementById("genreMovies").style.display="none";
+
+  window.scrollTo({
+    top:0,
+    behavior:"smooth"
+  });
+
+}
+
+
+/* =========================
+   SHOW GENRES
+========================= */
+
+function showGenres(){
+
+  document.getElementById("homePage").style.display="none";
+
+  document.getElementById("genrePage").style.display="block";
+
+  document.getElementById("genreMovies").style.display="none";
+
+  window.scrollTo({
+    top:0,
+    behavior:"smooth"
+  });
+
+}
+
+
+/* =========================
+   SHOW SPECIFIC GENRE MOVIES
+========================= */
+
+function showGenreMovies(genre){
+
+  document.getElementById("homePage").style.display="none";
+
+  document.getElementById("genrePage").style.display="none";
+
+  document.getElementById("genreMovies").style.display="block";
+
+  document.getElementById("selectedGenre").textContent =
+  "🎬 " + genre + " Movies";
+
+  const grid =
+  document.getElementById("genreMovieGrid");
+
+  const empty =
+  document.getElementById("emptyMessage");
+
+  grid.innerHTML="";
+
+  const movies =
+  genreMovies[genre] || [];
+
+  if(movies.length === 0){
+
+    empty.style.display="block";
+
+  }else{
+
+    empty.style.display="none";
+
+    movies.forEach(movie=>{
+
+      const card=document.createElement("div");
+
+      card.className="movie-card";
+
+      card.innerHTML=`
+
+        <img
+        src="https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?auto=format&fit=crop&w=600&q=80"
+        alt="${movie[0]}">
+
+        <div class="movie-info">
+
+          <h3>${movie[0]}</h3>
+
+          <p>${genre} • 2026</p>
+
+          <a
+          href="${movie[1]}"
+          class="watch-btn">
+          ▶ Watch Now
+          </a>
+
+        </div>
+
+      `;
+
+      grid.appendChild(card);
+
+    });
+
+  }
+
+  window.scrollTo({
+    top:0,
+    behavior:"smooth"
+  });
+
+}
+
+
+/* =========================
+   SEARCH MOVIES
+========================= */
+
+function searchMovies(){
 
   const input =
-    document.getElementById("searchInput")
-    .value
-    .toLowerCase();
+  document.getElementById("searchInput")
+  .value
+  .toLowerCase();
 
   const movies =
-    document.querySelectorAll(".movie-card");
+  document.querySelectorAll("#movieGrid .movie-card");
 
-  let found = 0;
-
-  movies.forEach(movie => {
+  movies.forEach(movie=>{
 
     const title =
-      movie.querySelector("h3")
-      .textContent
-      .toLowerCase();
+    movie.querySelector("h3")
+    .textContent
+    .toLowerCase();
 
-    if (title.includes(input)) {
+    if(title.includes(input)){
 
-      movie.style.display = "block";
-      found++;
+      movie.style.display="block";
 
-    } else {
+    }else{
 
-      movie.style.display = "none";
-
-    }
-
-  });
-
-  document.getElementById("noResults").style.display =
-    found === 0 ? "block" : "none";
-
-}
-
-
-function filterMovies(category) {
-
-  const movies =
-    document.querySelectorAll(".movie-card");
-
-  let found = 0;
-
-  movies.forEach(movie => {
-
-    if (
-      category === "all" ||
-      movie.dataset.category === category
-    ) {
-
-      movie.style.display = "block";
-      found++;
-
-    } else {
-
-      movie.style.display = "none";
+      movie.style.display="none";
 
     }
 
   });
 
-  document.getElementById("noResults").style.display =
-    found === 0 ? "block" : "none";
-
 }
 
-</script>
-
-</body>
-  </html>
+</script></body>
+</html>
