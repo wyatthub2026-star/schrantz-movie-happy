@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Adventure Movies - ANJ Movie</title>
+
+<style>
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: #080808;
+    color: #ffffff;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* HEADER */
+
+header {
+    background: linear-gradient(135deg, #111111, #003b2f);
+    padding: 25px 15px;
+    text-align: center;
+    border-bottom: 2px solid #00e676;
+}
+
+.logo {
+    font-size: 32px;
+    font-weight: bold;
+    color: #00e676;
+    letter-spacing: 1px;
+}
+
+.subtitle {
+    margin-top: 8px;
+    color: #cccccc;
+    font-size: 14px;
+}
+
+/* BACK BUTTON */
+
+.back-btn {
+    display: inline-block;
+    margin-top: 18px;
+    padding: 10px 20px;
+    background: #1c1c1c;
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    border: 1px solid #333;
+    transition: 0.3s;
+}
+
+.back-btn:hover {
+    background: #00e676;
+    color: #000;
+}
+
+/* MAIN */
+
+.container {
+    width: 95%;
+    max-width: 1200px;
+    margin: 25px auto;
+}
+
+.page-title {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.page-title h1 {
+    font-size: 28px;
+    margin-bottom: 8px;
+}
+
+.page-title p {
+    color: #999;
+}
+
+/* MOVIE GRID */
+
+.movie-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 18px;
+}
+
+/* CARD */
+
+.movie-card {
+    background: #151515;
+    border: 1px solid #292929;
+    border-radius: 12px;
+    overflow: hidden;
+    text-align: center;
+    padding-bottom: 15px;
+    transition: 0.3s ease;
+}
+
+.movie-card:hover {
+    transform: translateY(-6px);
+    border-color: #00e676;
+    box-shadow: 0 8px 25px rgba(0, 230, 118, 0.15);
+}
+
+/* POSTER */
+
+.movie-poster {
+    width: 100%;
+    height: 240px;
+    object-fit: cover;
+    display: block;
+    background: #222;
+}
+
+/* TITLE */
+
+.movie-title {
+    font-size: 15px;
+    margin: 13px 6px;
+    min-height: 38px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* ACCESS BUTTON */
+
+.access-btn {
+    display: inline-block;
+    background: #00c853;
+    color: #000;
+    padding: 9px 13px;
+    border-radius: 7px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 13px;
+    transition: 0.3s;
+}
+
+.access-btn:hover {
+    background: #00e676;
+    transform: scale(1.05);
+}
+
+/* FOOTER */
+
+footer {
+    margin-top: 40px;
+    padding: 25px;
+    background: #111111;
+    text-align: center;
+    color: #777777;
+    border-top: 1px solid #222;
+}
+
+/* TABLET */
+
+@media (max-width: 900px) {
+
+    .movie-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+}
+
+/* MOBILE */
+
+@media (max-width: 650px) {
+
+    .movie-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+    }
+
+    .movie-poster {
+        height: 200px;
+    }
+
+    .movie-title {
+        font-size: 13px;
+    }
+
+    .access-btn {
+        font-size: 12px;
+        padding: 8px 10px;
+    }
+
+}
+
+/* SMALL PHONE */
+
+@media (max-width: 360px) {
+
+    .movie-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .movie-poster {
+        height: 170px;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- HEADER -->
+
+<header>
+
+<div class="logo">
+🎬 ANJ Movie
+</div>
+
+<div class="subtitle">
+Watch Adventure Movies
+</div>
+
+<a href="index.html" class="back-btn">
+← Back to Home
+</a>
+
+</header>
+
+
+<!-- MAIN CONTENT -->
+
+<div class="container">
+
+
+<div class="page-title">
+
+<h1>🌿 Adventure Movies</h1>
+
+<p>Explore our Adventure Movie Collection</p>
+
+</div>
+
+
+<div class="movie-grid">
+
+
+<!-- MOVIE 1 -->
+
+<div class="movie-card">
+
+<img src="https://via.placeholder.com/300x450?text=Adventure+1"
+class="movie-poster"
+alt="Adventure Movie 1">
+
+<div class="movie-title">
+Adventure Movie 1
+</div>
+
+<a href="adventure1.html"
+class="access-btn">
+▶ Access Movie
+</a>
+
+</div>
+
+
+<!-- MOVIE 2 -->
+
+<div class="movie-card">
+
+<img src="https://via.placeholder.com/300x450?text=Adventure+2"
+class="movie-poster"
+alt="Adventure Movie 2">
+
+<div class="movie-title">
+Adventure Movie 2
+</div>
+
+<a href="adventure2.html"
+class="access-btn">
+▶ Access Movie
+</a>
+
+</div>
+
+
+<!-- MOVIE 3 -->
+
+<div class="movie-card">
+
+<img src="https://via.placeholder.com/300x450?text=Adventure+3"
+class="movie-poster"
+alt="Adventure Movie 3">
+
+<div class="movie-title">
+Adventure Movie 3
+</div>
+
+<a href="adventure3.html"
+class="access-btn">
+▶ Access Movie
+</a>
+
+</div>
+
+
+<!-- MOVIE 4 -->
+
+<div class="movie-card">
+
+<img src="https://via.placeholder.com/300x450?text=Adventure+4"
+class="movie-poster"
+alt="Adventure Movie 4">
+
+<div class="movie-title">
+Adventure Movie 4
+</div>
+
+<a href="adventure4.html"
+class="access-btn">
+▶ Access Movie
+</a>
+
+</div>
+
+
+<!-- MOVIE 5 -->
+
+<div class="movie-card">
+
+<img src="https://via.placeholder.com/300x450?text=Adventure+5"
+class="movie-poster"
+alt="Adventure Movie 5">
+
+<div class="movie-title">
+Adventure Movie 5
+</div>
+
+<a href="adventure5.html"
+class="access-btn">
+▶ Access Movie
+</a>
+
+</div>
+
+
+<!-- MOVIE 6 -->
+
+<div class="movie-card">
+
+<img src="https://via.placeholder.com/300x450?text=Adventure+6"
+class="movie-poster"
+alt="Adventure Movie 6">
+
+<div class="movie-title">
+Adventure Movie 6
+</div>
+
+<a href="adventure6.html"
+class="access-btn">
+▶ Access Movie
+</a>
+
+</div>
+
+
+<!-- MOVIE 7 -->
+
+<div class="movie-card">
+
+<img src="https://via.placeholder.com/300x450?text=Adventure+7"
+class="movie-poster"
+alt="Adventure Movie 7">
+
+<div class="movie-title">
+Adventure Movie 7
+</div>
+
+<a href="adventure7.html"
+class="access-btn">
+▶ Access Movie
+</a>
+
+</div>
+
+
+<!-- MOVIE 8 -->
+
+<div class="movie-card">
+
+<img src="https://via.placeholder.com/300x450?text=Adventure+8"
+class="movie-poster"
+alt="Adventure Movie 8">
+
+<div class="movie-title">
+Adventure Movie 8
+</div>
+
+<a href="adventure8.html"
+class="access-btn">
+▶ Access Movie
+</a>
+
+</div>
+
+
+<!-- MOVIE 9 -->
+
+<div class="movie-card">
+
+<img src="https://via.placeholder.com/300x450?text=Adventure+9"
+class="movie-poster"
+alt="Adventure Movie 9">
+
+<div class="movie-title">
+Adventure Movie 9
+</div>
+
+<a href="adventure9.html"
+class="access-btn">
+▶ Access Movie
+</a>
+
+</div>
+
+
+<!-- MOVIE 10 -->
+
+<div class="movie-card">
+
+<img src="https://via.placeholder.com/300x450?text=Adventure+10"
+class="movie-poster"
+alt="Adventure Movie 10">
+
+<div class="movie-title">
+Adventure Movie 10
+</div>
+
+<a href="adventure10.html"
+class="access-btn">
+▶ Access Movie
+</a>
+
+</div>
+
+
+<!-- MOVIE 11 -->
+
+<div class="movie-card">
+
+<img src="https://via.placeholder.com/300x450?text=Adventure+11"
+class="movie-poster"
+alt="Adventure Movie 11">
+
+<div class="movie-title">
+Adventure Movie 11
+</div>
+
+<a href="adventure11.html"
+class="access-btn">
+▶ Access Movie
+</a>
+
+</div>
+
+
+<!-- MOVIE 12 -->
+
+<div class="movie-card">
+
+<img src="https://via.placeholder.com/300x450?text=Adventure+12"
+class="movie-poster"
+alt="Adventure Movie 12">
+
+<div class="movie-title">
+Adventure Movie 12
+</div>
+
+<a href="adventure12.html"
+class="access-btn">
+▶ Access Movie
+</a>
+
+</div>
+
+
+<!-- MOVIE 13 -->
+
+<div class="movie-card">
+
+<img src="https://via.placeholder.com/300x450?text=Adventure+13"
+class="movie-poster"
+alt="Adventure Movie 13">
+
+<div class="movie-title">
+Adventure Movie 13
+</div>
+
+<a href="adventure13.html"
+class="access-btn">
+▶ Access Movie
+</a>
+
+</div>
+
+
+<!-- MOVIE 14 -->
+
+<div class="movie-card">
+
+<img src="https://via.placeholder.com/300x450?text=Adventure+14"
+class="movie-poster"
+alt="Adventure Movie 14">
+
+<div class="movie-title">
+Adventure Movie 14
+</div>
+
+<a href="adventure14.html"
+class="access-btn">
+▶ Access Movie
+</a>
+
+</div>
+
+
+<!-- MOVIE 15 -->
+
+<div class="movie-card">
+
+<img src="https://via.placeholder.com/300x450?text=Adventure+15"
+class="movie-poster"
+alt="Adventure Movie 15">
+
+<div class="movie-title">
+Adventure Movie 15
+</div>
+
+<a href="adventure15.html"
+class="access-btn">
+▶ Access Movie
+</a>
+
+</div>
+
+
+<!-- MOVIE 16 -->
+
+<div class="movie-card">
+
+<img src="https://via.placeholder.com/300x450?text=Adventure+16"
+class="movie-poster"
+alt="Adventure Movie 16">
+
+<div class="movie-title">
+Adventure Movie 16
+</div>
+
+<a href="adventure16.html"
+class="access-btn">
+▶ Access Movie
+</a>
+
+</div>
+
+
+<!-- MOVIE 17 -->
+
+<div class="movie-card">
+
+<img src="https://via.placeholder.com/300x450?text=Adventure+17"
+class="movie-poster"
+alt="Adventure Movie 17">
+
+<div class="movie-title">
+Adventure Movie 17
+</div>
+
+<a href="adventure17.html"
+class="access-btn">
+▶ Access Movie
+</a>
+
+</div>
+
+
+<!-- MOVIE 18 -->
+
+<div class="movie-card">
+
+<img src="https://via.placeholder.com/300x450?text=Adventure+18"
+class="movie-poster"
+alt="Adventure Movie 18">
+
+<div class="movie-title">
+Adventure Movie 18
+</div>
+
+<a href="adventure18.html"
+class="access-btn">
+▶ Access Movie
+</a>
+
+</div>
+
+
+<!-- MOVIE 19 -->
+
+<div class="movie-card">
+
+<img src="https://via.placeholder.com/300x450?text=Adventure+19"
+class="movie-poster"
+alt="Adventure Movie 19">
+
+<div class="movie-title">
+Adventure Movie 19
+</div>
+
+<a href="adventure19.html"
+class="access-btn">
+▶ Access Movie
+</a>
+
+</div>
+
+
+<!-- MOVIE 20 -->
+
+<div class="movie-card">
+
+<img src="https://via.placeholder.com/300x450?text=Adventure+20"
+class="movie-poster"
+alt="Adventure Movie 20">
+
+<div class="movie-title">
+Adventure Movie 20
+</div>
+
+<a href="adventure20.html"
+class="access-btn">
+▶ Access Movie
+</a>
+
+</div>
+
+
+</div>
+
+</div>
+
+
+<!-- FOOTER -->
+
+<footer>
+
+© 2026 ANJ Movie  
+<br>
+Adventure Movie Collection
+
+</footer>
+
+
+</body>
+  </html>
